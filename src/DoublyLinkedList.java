@@ -1,11 +1,21 @@
 import java.util.Iterator;
 
+/**
+ * Esta clase es otro tipo de lista
+ *@author Andy Castillo 18040 y Cristina Bautista 161260
+ *@version 15/02/2019
+ * @param <E>
+ */
 public class DoublyLinkedList <E> extends AbstractList <E>
 {
+    //parametros
     protected int count;
     protected DoublyLinkedNode<E> head;
     protected DoublyLinkedNode<E> tail;
 
+    /**
+     * Este es el constructor de la clase
+     */
     public DoublyLinkedList() // post: constructs an empty list
     {
         head = null;
@@ -18,6 +28,10 @@ public class DoublyLinkedList <E> extends AbstractList <E>
         return null;
     }
 
+    /**
+     * Este metodo es para agregar un elemento al inicio de la lista
+     * @param value
+     */
     public void addFirst(E value)
 // pre: value is not null
 // post: adds element to head of list
@@ -30,6 +44,10 @@ public class DoublyLinkedList <E> extends AbstractList <E>
     }
 
 
+    /**
+     * Este metodo es para agregar un elemento al final de la lista
+     * @param value
+     */
     public void addLast(E value)
 // pre: value is not null
 // post: adds new value to tail of list
@@ -42,9 +60,13 @@ public class DoublyLinkedList <E> extends AbstractList <E>
     }
 
 
+    /**
+     * Este metodo es para remover el ultimo elemento de la lista
+     * @return el valor del elemento revocado
+     */
     public E removeLast()
-// pre: list is not empty
-// post: removes value from tail of list
+    // pre: list is not empty
+    // post: removes value from tail of list
     {
         DoublyLinkedNode<E> temp = tail;
         tail = tail.previous();

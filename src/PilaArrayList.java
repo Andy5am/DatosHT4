@@ -1,7 +1,13 @@
 import java.util.ArrayList;
 
+/**
+ * Esta es la clase es un tipo de lista
+ * @author Andy Castillo 18040 y Cristina Bautista 161260
+ * @version 15/02/2019
+ * @param <E>
+ */
 public class PilaArrayList<E> extends AbstractPila<E> {
-
+    //se instancia un nuevo arreglo
     ArrayList<E> lista = new ArrayList();
 
     @Override

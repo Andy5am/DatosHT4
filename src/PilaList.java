@@ -1,6 +1,17 @@
+/**
+ * Esta es la clase es un tipo de lista
+ * @author Andy Castillo 18040 y Cristina Bautista 161260
+ * @version 15/02/2019
+ * @param <E>
+ */
 public class PilaList<E> extends AbstractPila<E> {
+    //una variable list de tipo lista
     private List list;
 
+    /**
+     * Este es el constructor
+     * @param opcion
+     */
     public PilaList(String opcion){
         FactoryList factoryList = new FactoryList();
         list = factoryList.createList(opcion);

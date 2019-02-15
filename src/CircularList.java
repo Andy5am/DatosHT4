@@ -1,12 +1,22 @@
 import java.util.Iterator;
 
+/**
+ * Esta clase es un tipo de lista, un tipo de stack
+ * @author Andy Castillo 18040 y Cristina Bautista 161260
+ * @version 15/02/2019
+ * @param <E>
+ */
 public class CircularList <E> extends AbstractList <E>
 {
+    //parametros
     protected Node<E> tail;
     protected int count;
 
+    /**
+     * Este es el constructor de la clase
+     */
     public CircularList()
-// pre: constructs a new circular list
+    // pre: constructs a new circular list
     {
         tail = null;
         count = 0;
@@ -27,6 +37,11 @@ public class CircularList <E> extends AbstractList <E>
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Este metodo es el que agrega el primer elemento a la lista
+     *
+     * @param value
+     */
     public void addFirst(E value) {
         Node<E> temp = new Node<E>(value);
         if (tail == null) { // first value added
@@ -38,9 +53,15 @@ public class CircularList <E> extends AbstractList <E>
         }
         count++;
     }
+
+    /**
+     * Este metodo es el que agrega un elemento al final de la lista
+     *
+     * @param value
+     */
     public void addLast(E value)
-// pre: value non-null
-// post: adds element to tail of list
+    // pre: value non-null
+    // post: adds element to tail of list
     {
         // new entry:
         addFirst(value);
@@ -48,11 +69,13 @@ public class CircularList <E> extends AbstractList <E>
     }
 
 
-// lo dificil es quitar el elemento de la cola
-
+    /**
+     * Este metodo hace que se remueva el ultimo elemento de la lista
+     * @return el valor que se removio
+     */
     public E removeLast()
-// pre: !isEmpty()
-// post: returns and removes value from tail of list
+    // pre: !isEmpty()
+    // post: returns and removes value from tail of list
     {
         Node<E> finger = tail;
         while (finger.next() != tail) {

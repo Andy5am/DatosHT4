@@ -1,3 +1,8 @@
+/**
+ * Clase de calculadora es donde se definen las operaciones.
+ * @author Andy Castillo 18040 y Cristina Bautista 161260
+ * @version 15/02/2019
+ */
 public class Calculator {
     private static Calculator calculator;
 
@@ -25,13 +30,22 @@ public class Calculator {
         }
     }
 
+    /**
+     * Este metodo es para crear la instancia de la calculadora
+     */
     private synchronized static void createInstance(){
+        //Por si no hay una calculadora, se crea una nueva
         if (calculator == null){
             calculator = new Calculator();
         }
     }
 
+    /**
+     * Este metodo es para retornar la instancia de la calculadora
+     * @return la instancia de la calculadora
+     */
     public static Calculator getInstance(){
+        //retorna la calculadora
         createInstance();
         return calculator;
     }
