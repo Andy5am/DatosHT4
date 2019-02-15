@@ -6,26 +6,28 @@ public class PilaVector<E> extends AbstractPila<E>{
 
     @Override
     public void push(E item) {
-
+        vector.add(item);
     }
 
     @Override
     public E pop() {
-        return null;
+        E lastItem = vector.get(vector.size()-1);
+        vector.remove(lastItem);
+        return lastItem;
     }
 
     @Override
     public E peek() {
-        return null;
+        return vector.get(vector.size()-1);
     }
 
     @Override
     public boolean empty() {
-        return false;
+        return vector.isEmpty();
     }
 
     @Override
     public int size() {
-        return 0;
+        return vector.size();
     }
 }

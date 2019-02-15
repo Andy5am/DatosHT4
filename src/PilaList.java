@@ -8,26 +8,28 @@ public class PilaList<E> extends AbstractPila<E> {
 
     @Override
     public void push(E item) {
-
+        list.add(item);
     }
 
     @Override
     public E pop() {
-        return null;
+        E lastItem = (E) list.getLast();
+        list.removeLast();
+        return lastItem;
     }
 
     @Override
     public E peek() {
-        return null;
+        return (E) list.getLast();
     }
 
     @Override
     public boolean empty() {
-        return false;
+        return list.isEmpty();
     }
 
     @Override
     public int size() {
-        return 0;
+        return list.size();
     }
 }

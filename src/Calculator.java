@@ -1,4 +1,7 @@
 public class Calculator {
+    private static Calculator calculator;
+
+    private Calculator(){}
     /**
      * Método calculate
      * recibe los numeros y efectua la operacion respectiva para cada operando.
@@ -16,7 +19,21 @@ public class Calculator {
         }else if(op.equals("*")){
             return num1 * num2;
         }else {
-            return num1/num2;
+            if (num2 != 0) {
+                return num1 / num2;
+            }else return -1;
         }
     }
+
+    private synchronized static void createInstance(){
+        if (calculator == null){
+            calculator = new Calculator();
+        }
+    }
+
+    public static Calculator getInstance(){
+        createInstance();
+        return calculator;
+    }
+
 }
