@@ -1,9 +1,7 @@
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
-public class CircularList<E> extends AbstractList<E> {
+public class CircularList <E> extends AbstractList <E>
+{
     protected Node<E> tail;
     protected int count;
 
@@ -14,10 +12,22 @@ public class CircularList<E> extends AbstractList<E> {
         count = 0;
     }
 
-    public void addFirst(E value)
-    // pre: value non-null
-    // post: adds element to head of list
-    {
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return null;
+    }
+
+    @Override
+    public int size() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void clear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void addFirst(E value) {
         Node<E> temp = new Node<E>(value);
         if (tail == null) { // first value added
             tail = temp;
@@ -26,25 +36,34 @@ public class CircularList<E> extends AbstractList<E> {
             temp.setNext(tail.next());
             tail.setNext(temp);
         }
-        count ++;
+        count++;
+    }
+    public void addLast(E value)
+// pre: value non-null
+// post: adds element to tail of list
+    {
+        // new entry:
+        addFirst(value);
+        tail = tail.next();
     }
 
-    // lo dificil es quitar el elemento de la cola
+
+// lo dificil es quitar el elemento de la cola
 
     public E removeLast()
-    // pre: !isEmpty()
-    // post: returns and removes value from tail of list
+// pre: !isEmpty()
+// post: returns and removes value from tail of list
     {
         Node<E> finger = tail;
         while (finger.next() != tail) {
             finger = finger.next();
         }
-        // finger now points to second-to-last valueNode<E> temp = tail;if (finger == tail)
+        // finger now points to second-to-last value
         Node<E> temp = tail;
         if (finger == tail)
         {
             tail = null;
-        }else{
+        } else {
             finger.setNext(tail.next());
             tail = finger;
         }
@@ -53,13 +72,68 @@ public class CircularList<E> extends AbstractList<E> {
     }
 
     @Override
-    public int size() {
-        return 0;
+    public E getFirst() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean contains(Object o) {
-        return false;
+    public E getLast() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E removeFirst() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E remove(E value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void add(E value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E remove() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E get() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int indexOf(E value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int lastIndexOf(E value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E get(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E set(int i, E o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void add(int i, E o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E remove(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -67,98 +141,4 @@ public class CircularList<E> extends AbstractList<E> {
         return null;
     }
 
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @Override
-    public <T> T[] toArray(T[] a) {
-        return null;
-    }
-
-    @Override
-    public boolean add(E e) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends E> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
-    public E get(int index) {
-        return null;
-    }
-
-    @Override
-    public E set(int index, E element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, E element) {
-
-    }
-
-    @Override
-    public E remove(int index) {
-        return null;
-    }
-
-    @Override
-    public int indexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public ListIterator<E> listIterator() {
-        return null;
-    }
-
-    @Override
-    public ListIterator<E> listIterator(int index) {
-        return null;
-    }
-
-    @Override
-    public List<E> subList(int fromIndex, int toIndex) {
-        return null;
-    }
 }
