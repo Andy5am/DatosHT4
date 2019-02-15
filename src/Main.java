@@ -10,7 +10,7 @@ public class Main {
 
     public static void main (String args []) {
 
-        ArrayList<String> archivo = new ArrayList<String>();
+        ArrayList<String> archivo = new ArrayList();
         try {
             Stream<String> lines = Files.lines(
                     Paths.get(System.getProperty("user.dir") + "\\src\\datos.txt"),
@@ -39,6 +39,7 @@ public class Main {
             for (int i =0; i<caracteres.length;i++){
                 operacion.add(caracteres[i]);
             }
+            boolean print = true;
             System.out.println(operacion);
             for (int car = 0;car < operacion.size();car++){
                 int num;
@@ -49,25 +50,23 @@ public class Main {
                 }catch (Exception e ){
                     if (!caracter.equals(" ")){
                         int num1 = (int) pila.pop();
-
                         int num2 = (int) pila.pop();
 
-                        int resultado = calculator.calculate(num2,num1,caracter);
-
-                        /*if (resultado<0){
-                            System.out.println("Division dentro de cero");
-                            break;
+                        int resultado;
+                        if (caracter.equals("/") && num1 == 0){
+                            print=!print;
                         }else {
+                            resultado = calculator.calculate(num2,num1,caracter);
                             pila.push(resultado);
-                        }*/
-                        pila.push(resultado);
+                        }
                     }
                 }
             }
-            System.out.println("resultado: "+ pila.pop());
-
+            if (print) {
+                System.out.println("resultado: " + pila.pop());
+            }else {
+                System.out.println("ERROR. Division dentro de 0");
+            }
         }
-
-
     }
 }

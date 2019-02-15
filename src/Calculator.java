@@ -21,7 +21,7 @@ public class Calculator {
         }else {
             if (num2 != 0) {
                 return num1 / num2;
-            }else return -1;
+            }else return num1+1;
         }
     }
 
