@@ -52,8 +52,7 @@ public class DoublyLinkedList <E> extends AbstractList <E>
             head = null;
         } else {
             tail.setNext(null);
-        }
-        count--;
+        }count--;
         return temp.value();
     }
 

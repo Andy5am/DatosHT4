@@ -23,9 +23,10 @@ public class DoublyLinkedNode<E>
         this(v,null,null);
     }
 
-    public void setNext(DoublyLinkedNode<E> e) {
+    public void setNext(DoublyLinkedNode<E> e)
+    // post: sets reference to new next value
+    {
         nextElement = e;
-        e.previousElement= this;
     }
 
     public E value() {

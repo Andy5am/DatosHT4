@@ -34,12 +34,12 @@ public class Main {
         Stack pila = factoryStack.createStack(opcion);
 
         for (int a = 0; a < archivo.size(); a++){
-            String[] caracteres = archivo.get(a).split("");
+            String[] caracteres = archivo.get(a).split(" ");
             ArrayList<String> operacion = new ArrayList();
             for (int i =0; i<caracteres.length;i++){
                 operacion.add(caracteres[i]);
             }
-
+            System.out.println(operacion);
             for (int car = 0;car < operacion.size();car++){
                 int num;
                 String caracter = operacion.get(car);
@@ -49,18 +49,22 @@ public class Main {
                 }catch (Exception e ){
                     if (!caracter.equals(" ")){
                         int num1 = (int) pila.pop();
+
                         int num2 = (int) pila.pop();
-                        int resultado = calculator.calculate(num1,num2,caracter);
-                        if (resultado<0){
+
+                        int resultado = calculator.calculate(num2,num1,caracter);
+
+                        /*if (resultado<0){
                             System.out.println("Division dentro de cero");
                             break;
                         }else {
                             pila.push(resultado);
-                        }
+                        }*/
+                        pila.push(resultado);
                     }
                 }
             }
-            System.out.println("resultado: "+ pila.peek());
+            System.out.println("resultado: "+ pila.pop());
 
         }
 

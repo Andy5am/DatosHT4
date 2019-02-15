@@ -67,6 +67,7 @@ public class SinglyLinkedList <E> extends AbstractList <E> {
             finger.setNext(temp);
         } else head = temp;
 
+
         count++;
 
     }
@@ -93,17 +94,41 @@ public class SinglyLinkedList <E> extends AbstractList <E> {
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Node finger = head;
+        while (finger!=null){
+            finger.setValue(null);
+        }
     }
 
     @Override
     public E getLast() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        if (head!=null){
+            Node<E> finger = head;
+            while (finger.next()!=null){
+                finger=finger.next();
+            }
+            return finger.value();
+        }
+        return head.value();
+
     }
 
     @Override
     public E removeLast() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Node <E> finger = head;
+        Node<E> previous = null;
+        while (finger.next()!=null){
+            previous = finger;
+            finger = finger.next();
+        }
+        if (previous == null){
+            head = null;
+        }else {
+            previous.setNext(null);
+        }
+        count--;
+        return finger.value();
     }
 
     @Override
