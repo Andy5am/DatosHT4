@@ -24,7 +24,7 @@ public class Main {
         // para leer los archivos
         try {
             Stream<String> lines = Files.lines(
-                    Paths.get(System.getProperty("user.dir") + "\\src\\datos.txt"),
+                    Paths.get(System.getProperty("user.dir") + "/datos.txt"),
                     StandardCharsets.UTF_8
             );
             lines.forEach(a -> archivo.add(a));
@@ -55,7 +55,7 @@ public class Main {
             }
             //Para confirma que se imprima el resultado en caso de division entre 0
             boolean print = true;
-            System.out.println(operacion);
+
             //Para evaluar cada caracteres
             for (int car = 0;car < operacion.size();car++){
                 int num;
